@@ -9,6 +9,7 @@ import {Comment} from "./comments/comments.entity";
 import {UsersModule} from "./users/users.module";
 import {NewsModule} from "./news/news.module";
 import {CommentsModule} from "./comments/comments.module";
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
@@ -25,7 +26,8 @@ import {CommentsModule} from "./comments/comments.module";
         }),
         UsersModule,
         NewsModule,
-        CommentsModule
+        CommentsModule,
+        AuthModule,
     ],
     controllers: [],
     providers: [],

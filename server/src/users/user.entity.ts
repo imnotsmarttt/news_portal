@@ -1,4 +1,13 @@
-import {Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, ManyToMany, JoinTable, CreateDateColumn} from "typeorm";
+import {
+    Entity,
+    PrimaryGeneratedColumn,
+    Column,
+    OneToMany,
+    ManyToOne,
+    ManyToMany,
+    JoinTable,
+    CreateDateColumn
+} from "typeorm";
 import {News} from "../news/news.entity";
 import {Comment} from "../comments/comments.entity";
 
@@ -7,10 +16,10 @@ export class User {
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column()
+    @Column({unique: true})
     email: string
 
-    @Column()
+    @Column({unique: true})
     username: string
 
     @Column()
@@ -19,7 +28,7 @@ export class User {
     @Column()
     password: string
 
-    @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
+    @CreateDateColumn({type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)"})
     created_at: Date;
 
     @ManyToMany(() => Role)
