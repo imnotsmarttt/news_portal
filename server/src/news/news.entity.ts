@@ -1,5 +1,5 @@
 import {Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToMany, ManyToOne, ManyToMany, JoinTable, Relation} from 'typeorm'
-import {User} from '../users/user.entity'
+import {User} from '../users/users.entity'
 import {Comment} from "../comments/comments.entity";
 
 

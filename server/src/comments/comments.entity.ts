@@ -1,6 +1,6 @@
 import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn} from 'typeorm';
 import {News} from '../news/news.entity';
-import {User} from '../users/user.entity';
+import {User} from '../users/users.entity';
 
 @Entity()
 export class Comment {

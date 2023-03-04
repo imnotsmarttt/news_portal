@@ -2,7 +2,7 @@ import {Module} from '@nestjs/common';
 import {TypeOrmModule} from "@nestjs/typeorm";
 
 import {DATABASE, DB_HOST, DB_PASSWORD, DB_PORT, DB_USERNAME} from "../config";
-import {User, Role} from './users/user.entity'
+import {User, Role} from './users/users.entity'
 import {News, Category, Image, Region} from "./news/news.entity";
 import {Comment} from "./comments/comments.entity";
 

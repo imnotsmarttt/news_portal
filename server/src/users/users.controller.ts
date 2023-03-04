@@ -1,9 +1,9 @@
-import {Controller, Get, Put, Delete, Post, Body, Request, UseGuards} from "@nestjs/common";
-import {UsersService} from "./users.service";
-import {User} from './user.entity'
-import * as bcrypt from 'bcrypt'
-import {BCRYPT_SALT} from "../../config";
-import {JwtGuard} from "../auth/guards/jwt-auth.guard";
+import {Controller, Get, Put, Delete, Request, UseGuards, Param} from '@nestjs/common';
+
+import {UsersService} from './users.service';
+
+import {JwtGuard} from '../auth/guards/jwt-auth.guard';
+import {UsersDto, UserProfileDto} from './users.dto';
 
 @Controller('/users')
 export class UsersController {
@@ -14,19 +14,14 @@ export class UsersController {
 
     @UseGuards(JwtGuard)
     @Get('/me')
-    async profile(@Request() req) {
+    profile(@Request() req): UsersDto  {
         return req.user
     }
 
-
-    @Get()
-    getAll() {
-
-    }
-
     @Get('/:id')
-    getOne() {
-
+    async getOne(@Param('id') id): Promise<UserProfileDto> {
+        const {password, created_at, ...user} = await this.usersService.getOne({id})
+        return user
     }
 
     @Delete('/:id')
@@ -36,6 +31,11 @@ export class UsersController {
 
     @Put('/:id')
     update() {
+
+    }
+
+    @Get()
+    getAll() {
 
     }
 }
