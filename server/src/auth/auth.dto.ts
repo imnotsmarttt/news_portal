@@ -1,7 +1,7 @@
-import {UsersDto} from "../users/users.dto";
+import {UserDto} from "../users/users.dto";
 
 
-export interface RegisterDto {
-    user: UsersDto,
+export interface AuthDto {
+    user: UserDto,
     token: string
 }

@@ -3,13 +3,13 @@ import {
     PrimaryGeneratedColumn,
     Column,
     OneToMany,
-    ManyToOne,
     ManyToMany,
     JoinTable,
     CreateDateColumn
 } from "typeorm";
 import {News} from "../news/news.entity";
 import {Comment} from "../comments/comments.entity";
+import {Role} from '../roles/roles.entity'
 
 @Entity()
 export class User {
@@ -42,11 +42,3 @@ export class User {
     comments: Comment[]
 }
 
-@Entity()
-export class Role {
-    @PrimaryGeneratedColumn()
-    id: number
-
-    @Column()
-    role: string
-}

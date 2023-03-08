@@ -4,10 +4,10 @@ import {News, Category, Image} from './news.entity'
 import {NewsController} from "./news.controller";
 import {NewsService} from "./news.service";
 
-
 @Module({
     imports: [TypeOrmModule.forFeature([News, Category, Image])],
-    providers: [NewsService],
+    providers: [NewsService, ],
     controllers: [NewsController]
 })
-export class NewsModule {}
+export class NewsModule {
+}

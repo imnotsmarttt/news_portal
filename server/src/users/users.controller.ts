@@ -3,7 +3,7 @@ import {Controller, Get, Put, Delete, Request, UseGuards, Param} from '@nestjs/c
 import {UsersService} from './users.service';
 
 import {JwtGuard} from '../auth/guards/jwt-auth.guard';
-import {UsersDto, UserProfileDto} from './users.dto';
+import {UserDto, UserProfileDto} from './users.dto';
 
 @Controller('/users')
 export class UsersController {
@@ -14,7 +14,7 @@ export class UsersController {
 
     @UseGuards(JwtGuard)
     @Get('/me')
-    profile(@Request() req): UsersDto  {
+    profile(@Request() req): UserDto  {
         return req.user
     }
 
